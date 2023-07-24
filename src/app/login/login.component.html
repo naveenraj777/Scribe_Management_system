@@ -1,0 +1,23 @@
+
+<div class="box">
+    <h3>Scribe Information Management</h3>
+    <h2>Login</h2>
+    <img src="https://previews.123rf.com/images/kilroy79/kilroy791507/kilroy79150700227/42125464-illustration-of-an-ink-pen-flat-colors-logo.jpg">
+    <!-- <h2>Log in</h2> -->
+    <form>
+      <div class="inputBox">
+        <input type="email" [(ngModel)]="loginData.email" name="email" placeholder="Email" required>
+        <label>Username</label>
+      </div>
+      <div class="inputBox">
+        <input type="password" type="password" [(ngModel)]="loginData.password" name="password" placeholder="Password" required>
+        <label>Password</label>
+      </div>
+     
+      <!-- <button routerLink="/signup" class="btn btn-warning">Sign in</button> -->
+      <input type="button" name="login-in" (click)="login()" value="Login"/>
+      <div *ngIf="isAdmin==='false'">
+        <input type="button" routerLink="/signup" name="sign-in" value="Sign up" />
+      </div>
+    </form>
+  </div>

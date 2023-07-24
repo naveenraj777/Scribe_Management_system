@@ -1,0 +1,148 @@
+  <!-- Menu -->
+  <div class="menu">
+    <div class="container flex">
+     
+
+      <ul class="nav">
+        <li class="nav-item"><a routerLink="/add-exam-slot" class="nav-button">Create Exam slot</a></li>
+        <li class="nav-item"><a  class="nav-button" (click)="logout()">Log out</a></li>
+        
+        <!-- <li class="nav-item"><a href="#explore">Explore</a></li>
+        <li class="nav-item"><a href="#discount">Register</a></li> -->
+      </ul>
+      <!-- <a href="#" class="btn">Login as Admin</a>
+      <a href="#" class="btn">Login as Admin</a> -->
+    </div>
+  </div>
+
+<br>
+<div class="row text-center">
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div class="btn btn-primary" mwlCalendarPreviousView
+         [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()">
+          Previous
+        </div>
+        <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+          Today
+        </div>
+        <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+          (viewDateChange)="closeOpenMonthViewDay()">
+          Next
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h1 class="date-title">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h1>
+    </div>
+    <div class="col-md-4">
+      <div class="btn-group">
+        <div class="btn btn-primary" (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">
+          Month
+        </div>
+        <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
+          Week
+        </div>
+        <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+          Day
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div [ngSwitch]="view">
+    <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+      [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+      (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
+      (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
+      (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+    </mwl-calendar-day-view>
+  </div>
+  
+  <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+  
+
+    
+  
+  <ng-template #modalContent let-close="close">
+    <div class="modal-header">
+      <h5 class="modal-title date-title">Volunteer Details</h5>
+      <button type="button" class="btn-close" (click)="close()">
+  
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- <div>
+          Action:
+          <pre>{{ modalData?.action }}</pre>
+        </div> -->
+      <div>
+        <!-- Event: -->
+        <!-- <pre>{{ modalData?.event?.data | json}}</pre> -->
+        <table class="table table-sm table-dark">
+          <tbody *ngIf="modalData.data.length!==0">
+            <tr>
+                <td>Volunteer Name</td>
+                <td>Volunteer Email</td>
+                <td>Volunteer Mobile </td>
+            </tr>
+            
+            <tr *ngFor="let n of modalData.data;let i = index;">
+                <td class="table-primary center"><label>{{modalData?.data[i]?.name}}</label></td>
+                <td class="table-primary center"><label>{{modalData?.data[i]?.email}}</label></td>
+                <td class="table-info center">{{modalData?.data[i]?.mobile}}</td>
+            </tr>
+            <!-- <tr>
+              <td class="table-primary center"><label>Start time</label></td>
+              <td class="table-info center">{{modalData?.event?.data.starttime}}</td>
+            </tr>
+            <tr>
+              <td class="table-primary center"><label>End time</label></td>
+              <td class="table-info center">{{modalData?.event?.data.endtime}}</td>
+            </tr>
+            <tr>
+              <td class="table-primary center"><label>Language</label></td>
+              <td class="table-info center">{{modalData?.event?.data.language}}</td>
+            </tr>
+            <tr>
+              <td class="table-primary center"><label>Wanted</label></td>
+              <td class="table-info center">{{modalData?.event?.data.wanted}}</td>
+            </tr> -->
+          
+          </tbody>
+         <tbody  *ngIf="modalData.data.length==0">
+            <tr>
+                <td colspan="3" style="text-align: center;font-size: 20px;">
+                    No Registration
+                </td>
+            </tr>
+         </tbody>
+          <ng-template  *ngIf="modalData.data.length==0">
+            No Registration
+          </ng-template>
+        </table>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <!-- <div *ngIf="modalData?.event?.data.isRegistered==='true'; else elseBlock">
+        <button type="button" class="btn btn-outline-success" (click)="register(modalData?.event?.data)">
+          Register
+        </button>
+      </div>
+      <ng-template #elseBlock>
+        Already registered
+      </ng-template> -->
+      <!-- <button type="button" class="btn btn-outline-success" >
+        Register
+      </button> -->
+      <!-- <ng-template  *ngIf="modalData.data.length==0">
+        No Registration
+      </ng-template> -->
+    </div>
+  </ng-template>

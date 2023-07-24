@@ -1,0 +1,175 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    font-family: sans-serif;
+  }
+
+  
+  .box {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0.125rem;
+    transform: translate(-50%, -50%);
+    width: 33rem;
+    height:720px;
+    box-sizing: border-box;
+    border: 2px solid #dadce0;
+    border-radius: 8px;
+  }
+  
+  .box h2 {
+    margin: 0 0 0.125rem;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    color: #202124;
+    font-family: "Google Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  .box img{
+    padding-top: 10px;
+    width:25%;
+    height:25%;
+  }
+
+  .box h3 {
+    margin: 0 0 0.125rem;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #fff;
+    text-align: center;
+    color: #202124;
+    font-family: "Google Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  mat-checkbox{
+    /* padding-left: 20px; */
+    font-size: 1rem;
+    letter-spacing: 0.032rem;
+    margin-left: 20px;
+  }
+  .example-section label{
+    font-size: 17px;
+    color:#202124
+  }
+  
+  .box p {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.1px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .box .inputBox {
+    position: relative;
+    margin-left: 1.76rem;
+  }
+  
+  .box .inputBox input,select {
+    width: 93%;
+    padding: 15px;
+    font-size: 1rem;
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 4px;
+  }
+
+  option{
+    padding: 10px;
+  }
+  
+  .box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    color: gray;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .box .inputBox input:focus ~ label,
+  .box .inputBox input:valid ~ label,
+  .box .inputBox input:not([value=""]) ~ label {
+    top: -1.125rem;
+    left: 10px;
+    color: #1a73e8;
+    font-size: 0.75rem;
+    background-color: #fff;
+    height: 10px;
+    padding-left: 11px;
+    padding-right: 5px;
+  }
+  
+  .box .inputBox input:focus {
+    outline: none;
+    border: 2px solid #1a73e8;
+  }
+  
+  .box input[type="button"] {
+    margin-bottom: 2rem;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #1a73e8;
+    padding: 0.625rem 1.30rem;
+    cursor: pointer;
+    border-radius: 0.312rem;
+    font-size: 1rem;
+    float: center;
+  }
+
+  .mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+
+  .radio{
+    /* text-align: left;
+    padding-bottom:30px;
+    font-size: 17px;
+    padding-left: 50px; */
+
+    /* display: inline-table; */
+  }
+
+  /* .radio mat-radio-button{
+    padding-left: 30px;
+  }
+
+  .radio mat-radio-group{
+    margin-left: 77px;
+  } */
+
+
+
+  .box select{
+    width:70%;
+    padding-left: 5px;
+    margin-left: 23%;
+  }
+  
+  .box input[type="button"]:hover {
+    background-color: #287ae6;
+    box-shadow: 0 1px 1px 0 rgba(66, 133, 244, 0.45),
+      0 1px 3px 1px rgba(66, 133, 244, 0.3);
+  }
+  

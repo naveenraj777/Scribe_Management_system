@@ -1,0 +1,28 @@
+<h1 class="title">My Registered Exams</h1>
+<table class="table">
+    <div *ngIf="myExams.length!==0 else elseBlock">
+        <th>Exam Id</th>
+        <th>Subject</th>
+        <th>Date</th>
+        <th>Timing</th>
+        <tr *ngFor="let exam of myExams">
+            <td class="table-primary center">
+                <h1>{{exam.exam_id}}</h1>
+            </td>
+            <td class="table-warning center">
+                <h1>{{exam.subject}}</h1>
+            </td>
+            <td class="table-warning center">
+                <h1>{{exam.date | date}}</h1>
+            </td>
+            <td class="table-warning center">
+                <h1>{{exam.starttime}}- {{exam.endtime}}</h1>
+            </td>
+            <td><button class="btn btn-danger" (click)="onDecline(exam)">Decline</button></td>
+        </tr>
+        
+    </div>
+   
+
+</table>
+<ng-template #elseBlock><h2>No registrations yet</h2></ng-template>
